@@ -1,4 +1,5 @@
 import banco from '../config/banco.js'
+import Usuario from './Usuario.js'
 
 const Receita = banco.sequelize.define('receitas', {
     id:{
