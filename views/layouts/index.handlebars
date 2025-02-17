@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    {{>nav}}
+    <div class="container text-center m-0">
+        <div class="row mw-100">
+            <div class="col col-sm-2 bg-secondary-subtle min-vh-100 min-vw-20 p-0">{{>sidebar}}</div>
+            <div class="col">{{{body}}}</div>
+        </div>
+    </div>
+    <script src="/js/bootstrap.bundle.js"></script>
+</body>
+</html>
