@@ -33,4 +33,7 @@ app.get('/', (req, res) => {
     res.render('admin/principal')
 })
 
+import usuario from './routes/usuario.js'
+app.use('/usuario', usuario)
+
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))
