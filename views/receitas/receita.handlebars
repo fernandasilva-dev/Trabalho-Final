@@ -1,0 +1,32 @@
+<div class="shadow">
+    <div class="row justify-content-end pb-3 pt-3">
+        <a class="col-1" href="/receitas/adicionar" style="text-decoration: none; color:#198754; font-size:25px"><i
+                class="bi bi-plus-square-fill"></i></a>
+    </div>
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each receitas}}
+            <tr>
+                <td>{{this.descricao}}</td>
+                <td>R$ {{this.valor}}</td>
+                <td>{{this.data}}</td>
+                <td>
+                    <a href="/receitas/editar/{{this.id}}" class="p-1" style="text-decoration: none;"><i
+                            class="bi bi-pen-fill" style="color: #0d6efd;">Editar</i></a>
+                    <a href="/receitas/excluir/{{this.id}}" onclick="return confirm('Tem certeza que deseja excluir?');"
+                        class="p-1" style="text-decoration: none;"><i class="bi bi-trash-fill"
+                            style="color: #dc3545;">Excluir</i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

@@ -33,4 +33,8 @@ app.get('/', (req, res) => {
     res.render('admin/principal')
 })
 
+app.get('/receitas', (req,res) => {
+    res.render('receitas/receita')
+})
+
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))
