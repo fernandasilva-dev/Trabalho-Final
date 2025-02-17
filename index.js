@@ -14,7 +14,7 @@ import auth from './config/autenticacao.js'*/
 
 //CONFIGURAR O TEMPLATE PADRÃO
 app.engine('handlebars', handlebars.engine({
-    defaultLayout: 'principal',
+    defaultLayout: 'index',
     handlebars: allowInsecurePrototypeAccess(Handlebars)
 }));
 app.set('view engine', 'handlebars');
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //ROTAS DO SISTEMA
 app.get('/', (req, res) => {
-    res.render('layouts/principal')
+    res.render('admin/principal')
 })
 
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))
