@@ -1,3 +1,32 @@
 .no-decoration{
     text-decoration: none;
 }
+
+.a-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.bg-gradient{
+    background:  hsla(216, 98%, 52%, 1);
+    background: linear-gradient(45deg, hsla(216, 98%, 52%, 1) 0%, hsla(134, 36%, 53%, 1) 100%) !important;
+}
+
+.outline{
+    border-style: none;
+    border-radius: 8px;
+}
+
+.outline-left{
+    border-style: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.outline-right{
+    border-style: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
