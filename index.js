@@ -6,7 +6,7 @@ import Handlebars from "handlebars";
 import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from 'url';
-import { allowInsecurePrototypeAccess} from "@handlebars/allow-prototype-access";
+import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 /*import session from 'express-session'
 import flash from 'connect-flash'
 import passport from 'passport';
@@ -36,4 +36,4 @@ app.get('/', (req, res) => {
 import usuario from './routes/usuario.js'
 app.use('/usuario', usuario)
 
-app.listen(3200, ()=> console.log('Servidor Rodando em http://localhost:3200'))
+app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))
