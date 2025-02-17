@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //ROTAS DO SISTEMA
 app.get('/', (req, res) => {
-    res.render('layouts/principal')
+    res.render('inicio/inicio')
 })
 
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))
