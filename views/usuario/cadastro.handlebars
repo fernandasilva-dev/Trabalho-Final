@@ -24,20 +24,20 @@
                 </div>
                 <div class="col p-5 outline-right">
                     <h3 class="text-center text-dark-subtle">Crie sua conta</h3>
-                    <form action="" method="post">
+                    <form method="post" action="salvar">
                         <fieldset>
                             <div class="mb-4">
                                 <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" required>
+                                <input type="text" class="form-control" name="nome" required>
                             </div>
                             <hr class="mb-4">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="exemplo@gmail.com" required>
+                                <input type="email" class="form-control" name="email" placeholder="exemplo@gmail.com" required>
                             </div>
                             <div class="mb-3">
                                 <label for="senha" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="senha" required>
+                                <input type="password" class="form-control" name="senha" required>
                             </div>
                             <div class="text-center mb-3"><button type="submit" class="btn btn-primary">Cadastrar</button></div>
                             <div id="not-registred" class="form-text">Já possui conta?
