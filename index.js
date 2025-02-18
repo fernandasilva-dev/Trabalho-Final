@@ -7,11 +7,31 @@ import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
-import dayjs from 'dayjs';
-/*import session from 'express-session'
+import session from 'express-session'
 import flash from 'connect-flash'
 import passport from 'passport';
-import auth from './config/autenticacao.js'*/
+import auth from './config/autenticacao.js'
+import logado from './config/regras.js';
+import dayjs from 'dayjs';
+auth(passport)
+
+//Cofig. sessão e connect-flash
+app.use(session({
+    secret: '1n5t1tut0F3d3r4l',
+    resave: true,
+    saveUninitialized: false
+}))
+app.use(flash())
+
+app.use((req, res, next)=>{
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error') || null
+    next()
+})
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 //CONFIGURAR O TEMPLATE PADRÃO
 app.engine('handlebars', handlebars.engine({
@@ -33,7 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //ROTAS DO SISTEMA
-app.get('/', (req, res) => {
+app.get('/', logado, (req, res) => {
     res.render('admin/principal')
 })
 

@@ -16,7 +16,10 @@
     <div class="container text-center m-0">
         <div class="row mw-100">
             <div class="col col-sm-2 bg-secondary-subtle min-vh-100 min-vw-20 p-0">{{>sidebar}}</div>
-            <div class="col">{{{body}}}</div>
+            <div class="col">
+                {{>msg}}
+                {{{body}}}
+            </div>
         </div>
     </div>
     <script src="/js/bootstrap.bundle.js"></script>
