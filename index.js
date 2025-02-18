@@ -12,6 +12,7 @@ import flash from 'connect-flash'
 import passport from 'passport';
 import auth from './config/autenticacao.js'
 import logado from './config/regras.js';
+import dayjs from 'dayjs';
 auth(passport)
 
 //Cofig. sessão e connect-flash
@@ -35,7 +36,10 @@ app.use(passport.session())
 //CONFIGURAR O TEMPLATE PADRÃO
 app.engine('handlebars', handlebars.engine({
     defaultLayout: 'index',
-    handlebars: allowInsecurePrototypeAccess(Handlebars)
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+    helpers: {
+        formatDate: (date) => dayjs(date).format('DD/MM/YYYY') // Formato brasileiro
+    }
 }));
 app.set('view engine', 'handlebars');
 
@@ -55,5 +59,11 @@ app.get('/', logado, (req, res) => {
 
 import usuario from './routes/usuario.js'
 app.use('/usuario', usuario)
+
+import receita from './routes/receita.js'
+app.use('/receita', receita)
+
+import despesa from './routes/despesa.js'
+app.use('/despesa', despesa)
 
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))
