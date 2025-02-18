@@ -7,10 +7,10 @@ import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { allowInsecurePrototypeAccess} from "@handlebars/allow-prototype-access";
-/*import session from 'express-session'
+import session from 'express-session'
 import flash from 'connect-flash'
 import passport from 'passport';
-import auth from './config/autenticacao.js'*/
+import auth from './config/autenticacao.js'
 
 //CONFIGURAR O TEMPLATE PADRÃO
 app.engine('handlebars', handlebars.engine({

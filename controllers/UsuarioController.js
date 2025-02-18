@@ -2,7 +2,13 @@ import Usuario from '../models/Usuario.js'
 
 class UsuarioController{
     index = async (req, res)=>{
-        //const user = await Usuario.
+        //let id = req.params.id
+        //let user = await Usuario.findByPK(id)
+        //let user = await Usuario.findAll({
+        //    where:{
+        //        id: id
+        //    }
+        //})
         //to do: buscar dados do usuario logado
         res.render('usuario/')
     }
@@ -16,7 +22,7 @@ class UsuarioController{
             nome: req.body.nome,
             email: req.body.email,
             senha: req.body.senha,
-            tipo: req.body.tipo,
+            tipo: 1,
             status: 1
         }
 
