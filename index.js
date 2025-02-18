@@ -38,7 +38,7 @@ app.engine('handlebars', handlebars.engine({
     defaultLayout: 'index',
     handlebars: allowInsecurePrototypeAccess(Handlebars),
     helpers: {
-        formatDate: (date) => dayjs(date).format('DD/MM/YYYY') // Formato brasileiro
+        formatDate: (date) => dayjs(date).format('DD/MM/YYYY') 
     }
 }));
 app.set('view engine', 'handlebars');
