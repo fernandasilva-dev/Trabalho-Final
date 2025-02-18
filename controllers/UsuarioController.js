@@ -1,4 +1,6 @@
 import Usuario from '../models/Usuario.js'
+import passaport from 'passport'
+import bcrypt from 'bcryptjs'
 
 class UsuarioController{
     index = async (req, res)=>{
@@ -17,18 +19,53 @@ class UsuarioController{
         res.render('usuario/cadastro', {layout: false})
     }
 
-    salvar = function(req,res){
-        let usuario = {
-            nome: req.body.nome,
-            email: req.body.email,
-            senha: req.body.senha,
-            tipo: 1,
-            status: 1
-        }
+    salvar = async function(req,res){
+        let email = req.body.email
+        let password = req.body.senha
+        const user = await Usuario.findOne({
+            where:{
+                email: email
+            }
+        })
 
-        Usuario.create(usuario).then(()=>{
+        if(!user){
+            const saltRounds = 10
+            const senhaCriptografada = await bcrypt.hash(password, saltRounds)
+
+            let usuario = {
+                nome: req.body.nome,
+                email: email,
+                senha: senhaCriptografada,
+                tipo: 1,
+                status: 1
+            }
+    
+            
+            const novoUsuario = await Usuario.create(usuario)
+
             console.log("Usuario cadastrado com sucesso!!")
-            res.redirect("/")
+            req.flash('success_msg','Cadastrado realizado com sucesso! Faça login!')
+            return res.redirect("login")
+        }
+        req.flash('error','Usuario já cadastrado!')
+        return res.redirect("cadastro")
+    }
+
+    login = (req, res) => {
+        res.render('usuario/login', {layout: false})
+    }
+
+    logar = (req, res, next) => {
+        passaport.authenticate('local',{
+            successRedirect: '/',
+            failureRedirect: '/usuario/login',
+            failureFlash: true
+        })(req,res,next)
+    }
+
+    logout = (req, res, next) => {
+        req.logout((erro) => {
+            res.redirect('/usuario/login')
         })
     }
 }

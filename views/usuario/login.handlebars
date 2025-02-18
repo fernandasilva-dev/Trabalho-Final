@@ -17,32 +17,27 @@
         <div class="w-50 bg-secondary-subtle outline shadow">
             <div class="row m-0">
                 <div class="col bg-gradient text-center p-3 pt-5 outline-left">
-                    <h1 class="text-light">Tenha controle sobre suas finanças</h1>
+                    <h1 class="text-light">Bem vindo(a) de volta</h1>
                     <p>
-                        Acompanhe seus gastos e rendimentos de forma simples e 
-                        obtenha uma compreensão clara dos seus hábitos financeiros.
+                        Assuma o controle das suas finanças hoje. Faça login para
+                        alcançar sua liberdade financeira!
                     </p>
                 </div>
                 <div class="col p-5 outline-right">
-                    <h3 class="text-center text-dark-subtle">Crie sua conta</h3>
-                    <form method="post" action="salvar">
+                    <h3 class="text-center text-dark-subtle">Login</h3>
+                    <form method="post" action="logar">
                         <fieldset>
-                            <div class="mb-4">
-                                <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" name="nome" required>
-                            </div>
-                            <hr class="mb-4">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" name="email" placeholder="exemplo@gmail.com" required>
                             </div>
                             <div class="mb-3">
-                                <label for="senha" class="form-label">Senha</label>
-                                <input type="password" class="form-control" name="senha" required>
+                                <label for="password" class="form-label">Senha</label>
+                                <input type="password" class="form-control" name="password" required>
                             </div>
-                            <div class="text-center mb-3"><button type="submit" class="btn btn-primary">Cadastrar</button></div>
-                            <div id="not-registred" class="form-text">Já possui conta?
-                                <a href="/usuario/login">login</a>
+                            <div class="text-center mb-3"><button type="submit" class="btn btn-primary">Entrar</button></div>
+                            <div id="not-registred" class="form-text">Não possui conta?
+                                <a href="/usuario/cadastro">sign-in</a>
                             </div>
                         </fieldset>
                     </form>

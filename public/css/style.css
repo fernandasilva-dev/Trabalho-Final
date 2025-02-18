@@ -31,6 +31,10 @@
     border-bottom-right-radius: 8px;
 }
 
-.icon{
-    height: 16px;
+#home-img{
+    height: 150px;
+}
+
+#login-img{
+    height: 50px;
 }
