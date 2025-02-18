@@ -1,6 +1,6 @@
 import Despesa from '../models/Despesa.js'
 
-class ReceitaController {
+class DespesaController {
     index = async (req, res) => {
         let despesa = await Despesa.findAll()
         res.render('despesas/index', {despesa: despesa})
@@ -23,4 +23,4 @@ class ReceitaController {
     }
 }
 
-export default new ReceitaController()
+export default new DespesaController()

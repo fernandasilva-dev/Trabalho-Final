@@ -43,6 +43,7 @@ app.use('/usuario', usuario)
 import receita from './routes/receita.js'
 app.use('/receita', receita)
 
-
+import despesa from './routes/despesa.js'
+app.use('/despesa', despesa)
 
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))
