@@ -14,15 +14,15 @@
             </tr>
         </thead>
         <tbody>
-            {{#each receita}}
+            {{#each receitas}}
             <tr>
                 <td>{{descricao}}</td>
                 <td>R$ {{valor}}</td>
-                <td>{{formatDate createdAt}}</td>
+                <td>{{formatDate updatedAt}}</td>
                 <td>
-                    <a href="/receitas/editar/{{id}}" class="p-1" style="text-decoration: none;"><i
+                    <a href="/receita/editar/{{id}}" class="p-1" style="text-decoration: none;"><i
                             class="bi bi-pen-fill" style="color: #0d6efd;">Editar</i></a>
-                    <a href="/receitas/excluir/{{id}}" onclick="return confirm('Tem certeza que deseja excluir?');"
+                    <a href="/receita/excluir/{{id}}" onclick="return confirm('Tem certeza que deseja excluir?');"
                         class="p-1" style="text-decoration: none;"><i class="bi bi-trash-fill"
                             style="color: #dc3545;">Excluir</i></a>
                 </td>
