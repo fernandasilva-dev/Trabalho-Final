@@ -6,8 +6,13 @@ import Handlebars from "handlebars";
 import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from 'url';
+<<<<<<< HEAD
 import { allowInsecurePrototypeAccess} from "@handlebars/allow-prototype-access";
 import session from 'express-session'
+=======
+import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
+/*import session from 'express-session'
+>>>>>>> 1f70d1eb8f3ee6cb6a7251a885e0856954c1c231
 import flash from 'connect-flash'
 import passport from 'passport';
 import auth from './config/autenticacao.js'
@@ -36,4 +41,4 @@ app.get('/', (req, res) => {
 import usuario from './routes/usuario.js'
 app.use('/usuario', usuario)
 
-app.listen(3200, ()=> console.log('Servidor Rodando em http://localhost:3200'))
+app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))
