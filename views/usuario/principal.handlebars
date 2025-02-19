@@ -1,0 +1,57 @@
+<div class="w-100 ps-3">
+    <div class="row  m-auto mt-2">
+        <div class="col">
+            <div class="card align-middle">
+                <div class="card-body">
+                    <h5 class="card-title">Despesas</h5>
+                    <p class="card-text">R$ {{somaDes}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Receitas</h5>
+                    <p class="card-text">R$ {{somaRec}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">P. Líquido</h5>
+                    <p class="card-text">R$ {{pl}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row w-100 m-auto pt-4">
+        <table class="table table-striped-columns">
+            <tr class="table-secondary">
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Tipo</th>
+                <th>Criado em</th>
+                <th>Última Edição</th>
+            </tr>
+            {{#each receitas}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{descricao}}</td>
+                    <td><i class="bi bi-caret-up-fill text-success"></i>
+                    <td>{{formatDate createdAt}}</td>
+                    <td>{{formatDate updatedAt}}</td>
+                </tr>
+            {{/each}}
+            {{#each despesas}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{descricao}}</td>
+                    <td><i class="bi bi-caret-down-fill text-danger"></i>
+                    <td>{{formatDate createdAt}}</td>
+                    <td>{{formatDate updatedAt}}</td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>

@@ -32,9 +32,24 @@
 }
 
 #home-img{
-    height: 150px;
+    height: 100px;
 }
 
-#login-img{
-    height: 50px;
+.border-dashed{
+    border-style: dashed !important;
+    border-width: 1px;
+    border-radius: 8px;
+}
+
+.res-nav-mobile{
+    display: none;
+}
+
+@media(max-width:515px){
+    .res-nav{
+        display: none;
+    }
+    .res-nav-mobile{
+        display: flex;
+    }
 }

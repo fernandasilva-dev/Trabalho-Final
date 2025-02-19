@@ -3,16 +3,15 @@ import passaport from 'passport'
 import bcrypt from 'bcryptjs'
 
 class UsuarioController{
-    index = async (req, res)=>{
-        //let id = req.params.id
-        //let user = await Usuario.findByPK(id)
-        //let user = await Usuario.findAll({
-        //    where:{
-        //        id: id
-        //    }
-        //})
-        //to do: buscar dados do usuario logado
-        res.render('usuario/')
+    perfil = (req, res)=>{
+        let nome = req.user.nome.split(" ")
+        let primeiro_nome = nome[0]
+        let usuario = {
+            primeiro_nome: primeiro_nome,
+            nome: req.user.nome,
+            email: req.user.email
+        }
+        res.render('usuario/perfil', {usuario: usuario})
     }
 
     cadastrar = (req, res)=>{
@@ -40,7 +39,6 @@ class UsuarioController{
                 status: 1
             }
     
-            
             const novoUsuario = await Usuario.create(usuario)
 
             console.log("Usuario cadastrado com sucesso!!")
@@ -67,6 +65,47 @@ class UsuarioController{
         req.logout((erro) => {
             res.redirect('/usuario/login')
         })
+    }
+
+    editar = async (req, res) => {
+        let nome = req.body.nome
+        let email = req.body.email
+        let id = req.user.id
+
+        if(nome){
+            await Usuario.update(
+                {nome: nome},{
+                where:{
+                    id: id
+                }
+            })
+        }
+        if(email) {
+            await Usuario.update(
+                {email: email},{
+                where:{
+                    id: id
+                }
+            })
+        }
+        
+        res.redirect('/usuario/perfil')
+    }
+
+    alterar_senha = async (req, res) => {
+        let senha = req.body.senha
+        let id = req.user.id
+        
+        const saltRounds = 10
+        const senhaCriptografada = await bcrypt.hash(senha, saltRounds)
+        await Usuario.update(
+            {senha: senhaCriptografada},{
+            where:{
+                id: id
+            }
+        })
+        
+        res.redirect('/usuario/perfil')
     }
 }
 

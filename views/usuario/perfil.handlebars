@@ -1,0 +1,24 @@
+<div class="row pt-3 w-75 m-auto">
+    <div class="col">
+        <h4>Olá {{usuario.primeiro_nome}}!</h4>
+    </div>
+    
+    <div class="col text-start">
+        <h5>Seus dados:</h5>
+        <p>{{usuario.nome}}</p>
+        <p>{{usuario.email}}</p>
+        <a class="btn btn-secondary mb-3" data-bs-toggle="collapse" href="#alteraDados" role="button" aria-expanded="false" aria-controls="alteraDados">alterar dados</a>
+        <a class="btn btn-warning mb-3" data-bs-toggle="collapse" href="#alteraSenha" role="button" aria-expanded="false" aria-controls="alteraSenha">alterar senha</a>
+    </div>
+    
+    <div class="collapse" id="alteraDados">
+        <div class="card card-body">
+            {{>alteracao_dados}}
+        </div>
+    </div>
+    <div class="collapse" id="alteraSenha">
+        <div class="card card-body">
+            {{>alteracao_senha}}
+        </div>
+    </div>
+</div>

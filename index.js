@@ -13,6 +13,9 @@ import passport from 'passport';
 import auth from './config/autenticacao.js'
 import logado from './config/regras.js';
 import dayjs from 'dayjs';
+import Receita from './models/Receita.js';
+import Despesa from './models/Despesa.js';
+import Usuario from './models/Usuario.js';
 auth(passport)
 
 //Cofig. sessão e connect-flash
@@ -53,8 +56,43 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //ROTAS DO SISTEMA
-app.get('/', logado, (req, res) => {
-    res.render('admin/principal')
+app.get('/', logado, async (req, res) => {
+    if(req.user.tipo == 0){
+        let usuarios = await Usuario.findAll()
+        return res.render('admin/principal', {usuarios: usuarios})
+    }
+    let receitas = await Receita.findAll({
+        raw: true,
+        where:{
+            usuario_id: req.user.id
+        }
+    })
+    let despesas = await Despesa.findAll({
+        raw: true,
+        where:{
+            usuario_id: req.user.id
+        }
+    })
+
+    let somaDes = 0
+    despesas.forEach(despesa => {
+        somaDes += despesa.valor
+    });
+
+    let somaRec = 0
+    receitas.forEach(receita => {
+        somaRec += receita.valor
+    });
+
+    let pl = somaRec - somaDes
+
+    return res.render('usuario/principal',{
+        receitas: receitas,
+        despesas: despesas,
+        somaDes: somaDes,
+        somaRec: somaRec,
+        pl: pl
+    })
 })
 
 import usuario from './routes/usuario.js'
