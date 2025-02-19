@@ -16,4 +16,6 @@ router.post('/logar', UsuarioController.logar)
 
 router.get('/logout', UsuarioController.logout)
 
+router.get('/relatorio', UsuarioController.relatorio)
+
 export default router
