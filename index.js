@@ -67,5 +67,8 @@ app.use('/receita', receita)
 import despesa from './routes/despesa.js'
 app.use('/despesa', despesa)
 
+import categoria from './routes/categoria.js'
+app.use('/categoria', categoria)
+
 
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))

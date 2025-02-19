@@ -9,15 +9,17 @@
             <tr>
                 <th>Descrição</th>
                 <th>Valor</th>
+                <th>Categoria</th>
                 <th>Data</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            {{#each despesa}}
+            {{#each despesas}}
             <tr>
                 <td>{{descricao}}</td>
                 <td>R$ {{valor}}</td>
+                <td>{{categoria.nome}}</td>
                 <td>{{formatDate createdAt}}</td>
                 <td>
                     <a href="/despesas/editar/{{id}}" class="p-1" style="text-decoration: none;"><i
