@@ -91,7 +91,8 @@ class UsuarioController{
             })
         }
         
-        res.redirect('/usuario/perfil')
+        req.flash('success_msg','Alteração realizada com sucesso!')
+        return res.redirect('/usuario/perfil')
     }
 
     alterar_senha = async (req, res) => {
@@ -107,7 +108,8 @@ class UsuarioController{
             }
         })
         
-        res.redirect('/usuario/perfil')
+        req.flash('success_msg','Senha alterada sucesso!')
+        return res.redirect('/usuario/perfil')
     }
     
     async relatorio(req, res) {
