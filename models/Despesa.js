@@ -13,8 +13,23 @@ const Despesa = banco.sequelize.define('despesas', {
     },
     valor: {
         type: banco.Sequelize.FLOAT,
+    },
+    usuario_id: {
+        type: banco.Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: Usuario,
+            key: 'id'
+        }
+    },
+    categoria_id: {
+        type: banco.Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: Categoria,
+            key: 'id'
+        }
     }
-
 })
 
 Despesa.belongsTo(Usuario, {
