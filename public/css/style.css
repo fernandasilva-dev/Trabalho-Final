@@ -45,7 +45,7 @@
     display: none;
 }
 
-@media(max-width:515px){
+@media(max-width:530px){
     .res-nav{
         display: none;
     }

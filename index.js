@@ -70,13 +70,15 @@ app.get('/', logado, async (req, res) => {
         raw: true,
         where:{
             usuario_id: req.user.id
-        }
+        },
+        order:[['id','DESC']]
     })
     let despesas = await Despesa.findAll({
         raw: true,
         where:{
             usuario_id: req.user.id
-        }
+        },
+        order:[['id','DESC']]
     })
 
     let somaDes = 0
