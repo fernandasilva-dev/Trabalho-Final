@@ -1,25 +1,34 @@
 import Despesa from '../models/Despesa.js'
+import Categoria from '../models/Categoria.js'
 
 class DespesaController {
     index = async (req, res) => {
-        let despesa = await Despesa.findAll()
-        res.render('despesas/index', {despesa: despesa})
+        let despesas = await Despesa.findAll({ include: 'categoria' })
+        res.render('despesas/index', { despesas })
     }
 
-    cadastrar = (req, res) => {
-        res.render('despesas/cadastro')
+    cadastrar = async (req, res) => {
+        let categorias = await Categoria.findAll() // Busca todas as categorias do banco
+        res.render('despesas/cadastro', { categorias }) // Passa as categorias para a view
     }
 
-    salvar = function (req, res) {
-        let despesa = {
-            descricao: req.body.descricao,
-            valor: req.body.valor
-        }
-
-        Despesa.create(despesa).then(() => {
-            console.log("Despesa cadastrado com sucesso!!")
+    salvar = async (req, res) => {
+        try {
+            console.log("Dados recebidos:", req.body) 
+    
+            let despesa = {
+                descricao: req.body.descricao,
+                valor: req.body.valor,
+                categoria_id: parseInt(req.body.categoria_id),
+            }
+    
+            await Despesa.create(despesa)
+            console.log("Despesa cadastrada com sucesso!")
             res.redirect("/despesa")
-        })
+        } catch (error) {
+            console.error("Erro ao cadastrar despesa:", error)
+            res.status(500).send("Erro ao salvar despesa")
+        }
     }
 }
 
