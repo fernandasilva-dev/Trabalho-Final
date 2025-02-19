@@ -12,6 +12,7 @@
             <tr>
                 <th>Descrição</th>
                 <th>Valor</th>
+                <th>Categoria</th>
                 <th>Data</th>
                 <th>Ações</th>
             </tr>
@@ -21,6 +22,7 @@
             <tr>
                 <td>{{descricao}}</td>
                 <td>R$ {{valor}}</td>
+                <td>{{categoria.nome}}</td>
                 <td>{{formatDate updatedAt}}</td>
                 <td>
                     <a href="/receita/editar/{{id}}" class="p-2" style="text-decoration: none;"><i class="bi bi-pencil-square" style="color: #0d6efd;"></i></a>
