@@ -1,4 +1,6 @@
 import Usuario from '../models/Usuario.js'
+import Despesa from '../models/Despesa.js'
+import Receita from '../models/Receita.js'
 import passaport from 'passport'
 import bcrypt from 'bcryptjs'
 
@@ -106,6 +108,28 @@ class UsuarioController{
         })
         
         res.redirect('/usuario/perfil')
+    }
+    
+    async relatorio(req, res) {
+        if (!req.user) {
+            return res.status(401).send("Usuário não autenticado!")
+        }
+
+        let totalReceitas = await Receita.sum('valor', {
+            where: { usuario_id: req.user.id }
+        })
+
+        let totalDespesas = await Despesa.sum('valor', {
+            where: { usuario_id: req.user.id }
+        })
+
+        let saldoFinal = (totalReceitas || 0) - (totalDespesas || 0)
+
+        res.render('usuario/relatorio', { 
+            totalReceitas: totalReceitas || 0, 
+            totalDespesas: totalDespesas || 0, 
+            saldoFinal 
+        })
     }
 }
 

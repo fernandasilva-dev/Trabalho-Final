@@ -41,10 +41,15 @@ app.engine('handlebars', handlebars.engine({
     defaultLayout: 'index',
     handlebars: allowInsecurePrototypeAccess(Handlebars),
     helpers: {
-        formatDate: (date) => dayjs(date).format('DD/MM/YYYY') // Formato brasileiro
+        formatDate: (date) => dayjs(date).format('DD/MM/YYYY'), 
+        gt: function(a, b) { return a > b; }
     }
 }));
 app.set('view engine', 'handlebars');
+
+Handlebars.registerHelper('eq', function (a, b) {
+    return a === b;
+});
 
 //CONFIGURAR O BODY PARSER PARA ENVIAR DADOS
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -103,5 +108,9 @@ app.use('/receita', receita)
 
 import despesa from './routes/despesa.js'
 app.use('/despesa', despesa)
+
+import categoria from './routes/categoria.js'
+app.use('/categoria', categoria)
+
 
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))

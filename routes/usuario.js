@@ -20,4 +20,6 @@ router.post('/editar', UsuarioController.editar)
 
 router.post('/alterar_senha', UsuarioController.alterar_senha)
 
+router.get('/relatorio', UsuarioController.relatorio)
+
 export default router
