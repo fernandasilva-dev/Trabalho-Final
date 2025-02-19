@@ -44,6 +44,10 @@ app.engine('handlebars', handlebars.engine({
 }));
 app.set('view engine', 'handlebars');
 
+Handlebars.registerHelper('eq', function (a, b) {
+    return a === b;
+});
+
 //CONFIGURAR O BODY PARSER PARA ENVIAR DADOS
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
