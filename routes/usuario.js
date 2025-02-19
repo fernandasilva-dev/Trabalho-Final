@@ -6,20 +6,20 @@ const router = express.Router()
 
 router.get('/perfil', logado, UsuarioController.perfil)
 
-router.get('/cadastro', UsuarioController.cadastrar)
+router.get('/cadastro', logado, UsuarioController.cadastrar)
 
-router.post('/salvar', UsuarioController.salvar)
+router.post('/salvar',  UsuarioController.salvar)
 
-router.get('/login', UsuarioController.login)
+router.get('/login',  UsuarioController.login)
 
 router.post('/logar', UsuarioController.logar)
 
 router.get('/logout', UsuarioController.logout)
 
-router.post('/editar', UsuarioController.editar)
+router.post('/editar', logado, UsuarioController.editar)
 
-router.post('/alterar_senha', UsuarioController.alterar_senha)
+router.post('/alterar_senha', logado, UsuarioController.alterar_senha)
 
-router.get('/relatorio', UsuarioController.relatorio)
+router.get('/relatorio', logado, UsuarioController.relatorio)
 
 export default router
