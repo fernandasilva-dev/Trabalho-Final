@@ -1,4 +1,5 @@
 import banco from '../config/banco.js'
+import Usuario from './Usuario.js'
 
 const Categoria = banco.sequelize.define('categorias', {
     id:{
@@ -8,8 +9,22 @@ const Categoria = banco.sequelize.define('categorias', {
     },
     nome:{
         type: banco.Sequelize.STRING(400),
+    },
+    usuario_id: {
+        type: banco.Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: Usuario,
+            key: 'id'
+        }
     }
        
+})
+
+Categoria.belongsTo(Usuario, {
+    foreignKey: 'usuario_id',
+    constraint: true,
+    as: 'usuario'
 })
 
 Categoria.sync()
