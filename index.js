@@ -38,7 +38,8 @@ app.engine('handlebars', handlebars.engine({
     defaultLayout: 'index',
     handlebars: allowInsecurePrototypeAccess(Handlebars),
     helpers: {
-        formatDate: (date) => dayjs(date).format('DD/MM/YYYY') 
+        formatDate: (date) => dayjs(date).format('DD/MM/YYYY'), 
+        gt: function(a, b) { return a > b; }
     }
 }));
 app.set('view engine', 'handlebars');
@@ -65,5 +66,6 @@ app.use('/receita', receita)
 
 import despesa from './routes/despesa.js'
 app.use('/despesa', despesa)
+
 
 app.listen(3200, () => console.log('Servidor Rodando em http://localhost:3200'))

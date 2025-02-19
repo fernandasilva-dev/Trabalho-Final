@@ -1,0 +1,13 @@
+<h2>Relatório Financeiro</h2>
+
+<p><strong>Total de Receitas:</strong> R$ {{totalReceitas}}</p>
+<p><strong>Total de Despesas:</strong> R$ {{totalDespesas}}</p>
+<p><strong>Saldo Final:</strong> R$ {{saldoFinal}}</p>
+
+{{#if saldoFinal}}
+{{#if (gt saldoFinal 0)}}
+<p style="color: green;"><strong>Situação:</strong> Positiva</p>
+{{else}}
+<p style="color: red;"><strong>Situação:</strong> Negativa</p>
+{{/if}}
+{{/if}}
